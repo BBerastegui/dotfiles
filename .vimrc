@@ -1,4 +1,5 @@
-" Almost all from jroimartin :P
+execute pathogen#infect()
+
 " Configuration
 set wildmenu
 set nocompatible
@@ -10,16 +11,25 @@ set ai
 set cin
 set showmatch
 set nu
+syntax on
 set backspace=2
 set shiftwidth=4
 set tabstop=4
 set smarttab
-"set expandtab
+set expandtab
 filetype on
 filetype plugin indent on
-syntax on
-"colorscheme desert
 set background=dark
+"colorscheme desert
+
+" Run copen after using :grep or :make
+autocmd QuickFixCmdPost * copen
+
+" show commit diff
+map <F12> :sp<cr>:e /tmp/commit.diff<cr>:r !git diff HEAD<cr>
+
+" ctags support
+map <F11> :!ctags -f tags -R .
 
 " Highlight chars over column 80
 "match ErrorMsg '\%>80v.\+'
@@ -39,5 +49,8 @@ map \| :set invlist<CR>
 " Search
 map \ :nohlsearch<CR>
 
-" Encryption algorithm for vim -x
+" Go
+" Auto gofmt when saving
+let g:go_fmt_command = "goimports"
+
 set cm=blowfish
