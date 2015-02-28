@@ -17,22 +17,12 @@ set shiftwidth=4
 set tabstop=4
 set smarttab
 set expandtab
+set cm=blowfish
+
 filetype on
 filetype plugin indent on
+
 set background=dark
-"colorscheme desert
-
-" Run copen after using :grep or :make
-autocmd QuickFixCmdPost * copen
-
-" show commit diff
-map <F12> :sp<cr>:e /tmp/commit.diff<cr>:r !git diff HEAD<cr>
-
-" ctags support
-map <F11> :!ctags -f tags -R .
-
-" Highlight chars over column 80
-"match ErrorMsg '\%>80v.\+'
 
 " status line
 set laststatus=2 " always show the status bar
@@ -52,5 +42,3 @@ map \ :nohlsearch<CR>
 " Go
 " Auto gofmt when saving
 let g:go_fmt_command = "goimports"
-
-set cm=blowfish
