@@ -2,6 +2,22 @@
 set -o errexit
 set -o nounset
 
+setup_folders (){
+    if [ -d ~/pentest ]; then
+        mkdir pentest
+        cd pentest
+        mkdir android
+        mkdir database
+        mkdir forensics
+        mkdir information
+        mkdir web
+        mkdir wireless
+        cd ~
+    fi
+    if [ -d ~/src ]; then
+    fi
+}
+
 add_architecture (){
     sudo dpkg --add-architecture i386
     sudo apt-get update
@@ -10,9 +26,17 @@ add_architecture (){
 
 install_stuff (){
     # Install stuff
-    STUFF_TO_INSTALL="curl nmap tmux scalpel binwalk"
+    STUFF_TO_INSTALL="curl nmap tmux scalpel binwalk tor git"
     sudo apt-get update
     sudo apt-get install $STUFF_TO_INSTALL
+
+    # Repositories
+    
+    #git clone https://github.com/rapid7/metasploit-framework.git
+}
+
+setup_stuff (){
+    # Disable services on startup
 }
 
 config_files (){
@@ -38,6 +62,8 @@ config_files (){
         curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 }
 
+config_files
+setup_folders
 add_architecture
 install_stuff
-config_files
+setup_stuff
