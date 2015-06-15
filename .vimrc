@@ -17,12 +17,13 @@ set shiftwidth=4
 set tabstop=4
 set smarttab
 set expandtab
-set cm=blowfish
-
 filetype on
 filetype plugin indent on
-
 set background=dark
+"colorscheme desert
+
+" Highlight chars over column 80
+"match ErrorMsg '\%>80v.\+'
 
 " status line
 set laststatus=2 " always show the status bar
@@ -41,4 +42,6 @@ map \ :nohlsearch<CR>
 
 " Go
 " Auto gofmt when saving
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
+
+set cm=blowfish
