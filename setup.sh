@@ -37,6 +37,9 @@ install_stuff (){
 
 setup_stuff (){
     # Disable services on startup
+    # Github config
+    git config --global user.name "BBerastegui"
+    git config --global user.email "BBerastegui@users.noreply.github.com"
 }
 
 config_files (){
