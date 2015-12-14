@@ -12,16 +12,3 @@ export PATH="$PATH:$HOME/.rvm/bin:$HOME/src/go/bin" # Add RVM to PATH for script
 
 export EDITOR=vim
 
-function ssht(){
-	ssh $* -t "tmux a || tmux || /bin/bash"
-}
-
-sgit_func() {
-    git config --global http.proxy 'socks5://localhost:8081'
-    git $@
-    git config --global --unset http.proxy
-}
-
-alias sgit=sgit_func $@
-
-alias ls="ls -G"
