@@ -38,6 +38,9 @@ sgit_func() {
 alias sgit=sgit_func $@
 alias ssh=ssh_custom_profile $@
 
-# Simple aliases
+# Aliases
 alias ls="ls -G"
+## Docker helpers
+alias docker-rm-exited="docker rm -v $(docker ps -a -q -f status=exited)"
+
 
