@@ -40,6 +40,7 @@ alias ssh=ssh_custom_profile $@
 
 # Aliases
 alias ls="ls -G"
+alias smtptls="openssl s_client -debug -starttls smtp -crlf -connect"
 ## Docker helpers
 alias docker-rm-exited="docker rm -v $(docker ps -a -q -f status=exited)"
 
