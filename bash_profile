@@ -1,6 +1,7 @@
 export EDITOR=/usr/bin/vim
 
-export PS1="\u@\h\w $ "
+#export PS1="\u@\h\w $ "
+export PS1="[\[$(tput sgr0)\]\[\033[38;5;251m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\]] - \[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;68m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \n \\$ \[$(tput sgr0)\]"
 
 #
 # Helper functions
@@ -34,6 +35,12 @@ sgit_func() {
     git config --global --unset http.proxy
 }
 
+# Docker bash
+docker-bash_func() {
+    docker exec -it $* bash
+}
+
+
 # Function aliases
 alias sgit=sgit_func $@
 alias ssh=ssh_custom_profile $@
@@ -43,5 +50,5 @@ alias ls="ls -G"
 alias smtptls="openssl s_client -debug -starttls smtp -crlf -connect"
 ## Docker helpers
 alias docker-rm-exited="docker rm -v $(docker ps -a -q -f status=exited)"
-
+alias docker-bash=docker-bash_func $@
 
