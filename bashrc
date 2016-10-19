@@ -11,4 +11,3 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/src/go/bin" # Add RVM to PATH for scripting
 
 export EDITOR=vim
-

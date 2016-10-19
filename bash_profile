@@ -40,6 +40,8 @@ docker-bash_func() {
     docker exec -it $* bash
 }
 
+# The good find
+find() { command find $@ 2>&1 | grep -v "Permission denied"; }
 
 # Function aliases
 alias sgit=sgit_func $@
